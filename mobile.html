@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free coming soon template with jQuery countdown">
+    <meta name="author" content="http://bootstraptaste.com">
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+
+    <title>Matic Food - Mascotas saludables - Dueños felices</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+	<link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="assets/css/font-awesome.css" rel="stylesheet">
+
+    <!-- siimple style -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+        #wrapper{
+            background-image:none; 
+            background: #DDD;
+        }
+        body{
+            background-image:none; 
+            background: #DDD;
+        }
+    </style>
+    
+    <!-- =======================================================
+        Theme Name: WeBuild
+        Theme URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
+        Author: BootstrapMade
+        Author URL: https://bootstrapmade.com
+    ======================================================= -->
+  </head>
+
+  <body>
+
+	<div id="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1><img src="images/logo-blue.png" style="max-width: 100%;"></h1>
+					<h2 class="subtitle">Presionando el botón, podrás alimentar a tu mascota.</h2>
+					<div class="row" style="margin: 40px 0px;">
+                        <div class="col-sm-12">
+                            <div class="icon-holder">
+                                    <img alt="Healthy Pet Portions" height="180" src="./maticfood_files/image-circle-smarter_feeding-2x-f861dfeed53575386facc0f745694a35.png" width="180">
+                            </div>
+                        </div>
+                    </div>
+					  <button type="submit" onclick="feed()" class="btn btn-theme">Alimentar!</button>
+                      <div id="mensaje"></div>
+					
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+						<p class="copyright" style="color:#76777b">&copy; Matic Food - Todos los derechos reservados</p>
+				</div>
+			</div>		
+		</div>
+	</div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+<script>
+function feed() {
+  document.getElementById("mensaje").innerHTML = "Procesando";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("mensaje").innerHTML = "Mascota alimentada";
+      
+    } else {
+      document.getElementById("mensaje").innerHTML = "Error en la conexion";
+    }
+  };
+  xhttp.open("GET", "http://192.168.4.1/feed", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
