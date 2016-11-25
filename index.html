@@ -36,13 +36,14 @@
 					<h1><img src="images/logo-blue.png" style="max-width: 100%;"></h1>
 					<h2 class="subtitle">Próximamente llega una revolución para vos y tu mascota...</h2>
 					<div id="countdown"></div>
-					<form class="form-inline signup" role="form">
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresá tu email">
-					  </div>
-					  <button type="submit" class="btn btn-theme">Recibí más información!</button>
-					</form>		
-                    <div class="social">
+                    <form class="form-inline signup" target="https://docs.google.com/forms/d/e/1FAIpQLSepOCqnKvuDWSV0fHOGYvxJva8muOAdONE7-H-qOFzZKTJSpg/formResponse" role="form" name="mG61Hd" id="mG61Hd" onsubmit="SubForm()">
+                      <div class="form-group">
+              <input class="form-control" type="text" id="exampleInputEmail1" name="entry.2051413" placeholder="Ingresá tu email" value=""/>
+<input type="hidden" name="fvv" value="1">
+                      </div>
+                      <button type="submit" class="btn btn-theme">Recibí más información!</button>
+                    </form> 
+                                        <div class="social">
                         <a href="https://www.facebook.com/MaticFood-1909284149302362/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="https://twitter.com/maticfood" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </div>
@@ -63,6 +64,18 @@
       $('#countdown').countdown('2017/03/01', function(event) {
         $(this).html(event.strftime('%w Semanas %d días <br /> %H:%M:%S'));
       });
+        function SubForm() {
+            $.ajax({
+            // url:$('#mG61Hd').target,
+                url:'https://docs.google.com/forms/d/e/1FAIpQLSepOCqnKvuDWSV0fHOGYvxJva8muOAdONE7-H-qOFzZKTJSpg/formResponse',
+                type:'POST',
+                data:$('#mG61Hd').serialize(),
+                success:function(){
+                    alert("worked");
+                }
+            });
+        return false;
+        }
     </script>
     
 </body>
